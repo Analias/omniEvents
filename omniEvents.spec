@@ -104,7 +104,7 @@ install -d %{buildroot}%{_initrddir}
 install -d %{buildroot}%{_sysconfdir}/default
 %endif
 install -d %{buildroot}%{_mandir}/{man1,man8}
-install -d -m 755 %{buildroot}%{_sharedstatedir}/omniEvents
+install -d -m 755 %{buildroot}%{_localstatedir}/log/omniEvents
 
 %{?makeinstall_std:%makeinstall_std}%{!?makeinstall_std:make DESTDIR=%{buildroot} install}
 
@@ -177,7 +177,7 @@ fi
 
 %files server
 %defattr (-,root,root)
-%dir %attr(755,omniORB,root) %{_sharedstatedir}/omniEvents
+%dir %attr(755,omniORB,root) %{_localstatedir}/log/omniEvents
 %attr(755,root,root) %{_sbindir}/omniEvents
 %attr(644,root,man) %{_mandir}/man8/*
 
